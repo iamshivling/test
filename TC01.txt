@@ -1,0 +1,140 @@
+package pomClasses;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class PomDemo {
+	
+	
+	//Declaration 
+	
+	@FindBy(xpath="//input[@name='firstname']") private WebElement firstName;
+	
+	//WebElement userName=driver.findElement(By.xpath("//input[@name='firstname'] ")); 
+	
+	@FindBy(xpath="//input[@name='lastname']") private WebElement lastName;
+	
+	
+	@FindBy(xpath="//input[@name='reg_email__']") private WebElement mob;
+	
+	//Initailization	
+	PomDemo(WebDriver driver){
+		PageFactory.initElements(driver, this);
+	}
+	
+	
+	// usage
+	public void enterFirstName(String name) {
+		firstName.sendKeys(name);
+	}
+
+	public void enterLastName(String lastname) {
+		lastName.sendKeys(lastname);
+
+	}
+	
+	public void enterMob(String mobNo) {
+		mob.sendKeys(mobNo);
+	}
+	
+	
+	public void clickSignUp() {
+		
+	}
+	
+
+}
+-------------------------------------------------------------------------------
+
+package pomClasses;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import configuration.PathConfig;
+
+public class TestClass {
+	public static void main(String[] args) {
+
+		System.setProperty("webdriver.chrome.driver", PathConfig.driverPath);
+
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+
+		driver.get(PathConfig.appUrl);
+
+		PomDemo pom = new PomDemo(driver);
+
+		// TC01
+
+		pom.enterFirstName("Tester1");
+		pom.enterLastName("TestrtLastName");
+		pom.enterMob("9665856");
+
+	}
+
+}
+-----------------------------------------------------------------------------
+package pomClasses;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import configuration.PathConfig;
+
+public class TestClass1 {
+	public static void main(String[] args) {
+
+		System.setProperty("webdriver.chrome.driver", PathConfig.driverPath);
+
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+
+		driver.get(PathConfig.appUrl);
+
+		PomDemo pom = new PomDemo(driver);
+
+		// TC01
+
+		pom.enterFirstName("Ramesh");
+		pom.enterLastName("TestrtLastName");
+		pom.enterMob("558555");
+
+	}
+
+}
+-----------------------------------------------------------------------------------
+package pomClasses;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import configuration.PathConfig;
+
+public class TestClass2 {
+
+	public static void main(String[] args) {
+
+		System.setProperty("webdriver.chrome.driver", PathConfig.driverPath);
+
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+
+		driver.get(PathConfig.appUrl);
+
+		PomDemo pom = new PomDemo(driver);
+
+		// TC01
+
+		pom.enterFirstName("Suresh");
+		pom.enterLastName("LastName");
+		pom.enterMob("98556622");
+
+	}
+
+}
+
+
+new modification
